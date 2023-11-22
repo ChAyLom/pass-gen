@@ -1,8 +1,11 @@
 import { Colors } from '@blueprintjs/core';
 import { TitleBar } from './components/title-bar';
 import { Router } from './components/router';
+import { usePassgenSetupSaver } from './hooks/use-passgen-setup-saver';
 
 export const App = () => {
+  usePassgenSetupSaver();
+
   return (
     <div
       className="flex flex-col w-screen h-screen bp5-dark"

@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AllowSymbolsSeqsSchema, BaseGenSchema, PassgenSetupSchema } from './passgen-setup-schema';
+import {
+  AllowSymbolsSeqsSchema,
+  BaseGenSchema,
+  PassgenSetupSchema,
+} from './passgen-setup-schema';
 
 type BaseGenOptions = z.infer<typeof BaseGenSchema>;
 
@@ -32,6 +36,9 @@ export const passgenSetupSlice = createSlice({
       { payload }: PayloadAction<{ seq: keyof SymbolsSequences; value: boolean }>,
     ) {
       state.allowSymbolsSeqs[payload.seq] = payload.value;
+    },
+    set(_, { payload }: PayloadAction<PassgenSetupState>) {
+      return payload;
     },
   },
 });
