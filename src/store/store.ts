@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { passgenSetupSlice } from './slices/passgen-setup.slice';
+import { passgenSetupSlice } from './slices/passgen-setup/passgen-setup.slice';
 import { appSlice } from './slices/app.slice';
 import { listenerMiddleware } from './listener-middleware';
 

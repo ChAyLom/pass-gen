@@ -1,6 +1,6 @@
 import { SymGroupSwitch } from '../sym-group-switch';
 import { useDispatch, useSelector } from '../../store/hooks';
-import { passgenSetupActions } from '../../store/slices/passgen-setup.slice';
+import { passgenSetupActions } from '../../store/slices/passgen-setup/passgen-setup.slice';
 
 export const SeparatorsSwitch = () => {
   const value = useSelector(state => state.passGenSetup.allowSymbolsSeqs.separators);

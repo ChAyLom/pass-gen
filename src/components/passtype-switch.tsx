@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from '@blueprintjs/core';
-import { passgenSetupActions } from '../store/slices/passgen-setup.slice';
+import { passgenSetupActions } from '../store/slices/passgen-setup/passgen-setup.slice';
 import { useDispatch, useSelector } from '../store/hooks';
 
 export const PassTypeSwitch = () => {
@@ -18,7 +18,7 @@ export const PassTypeSwitch = () => {
         intent={passType === 'groups' ? 'primary' : 'none'}
         onClick={() => dispatch(passgenSetupActions.setPassType('groups'))}
       >
-        With groups
+        Groups
       </Button>
     </ButtonGroup>
   );

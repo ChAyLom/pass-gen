@@ -1,4 +1,4 @@
-import { PassgenSetupState } from '../store/slices/passgen-setup.slice';
+import { PassgenSetupState } from '../store/slices/passgen-setup/passgen-setup.slice';
 import { randomString } from './random-tools';
 import {
   lowercaseLatin,

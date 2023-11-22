@@ -1,4 +1,4 @@
-import { passgenSetupActions } from '../store/slices/passgen-setup.slice';
+import { passgenSetupActions } from '../store/slices/passgen-setup/passgen-setup.slice';
 import { GroupSeparator } from '../libs/consts';
 import { SegmentedControl } from '@blueprintjs/core';
 import { useDispatch, useSelector } from '../store/hooks';

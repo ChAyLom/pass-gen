@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AllowSymbolsSeqsSchema, BaseGenSchema, PassgenSetupSchema } from './passgen-setup/passgen-setup-schema';
+import { AllowSymbolsSeqsSchema, BaseGenSchema, PassgenSetupSchema } from './passgen-setup-schema';
 
 type BaseGenOptions = z.infer<typeof BaseGenSchema>;
 
