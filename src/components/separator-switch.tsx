@@ -1,5 +1,5 @@
 import { passgenSetupActions } from '../store/slices/passgen-setup.slice';
-import { Separator } from '../libs/consts';
+import { GroupSeparator } from '../libs/consts';
 import { SegmentedControl } from '@blueprintjs/core';
 import { useDispatch, useSelector } from '../store/hooks';
 
@@ -13,7 +13,7 @@ export const SeparatorSwitch = () => {
       <SegmentedControl
         intent="primary"
         value={value}
-        onValueChange={v => dispatch(passgenSetupActions.setSeparator(v as Separator))}
+        onValueChange={v => dispatch(passgenSetupActions.setSeparator(v as GroupSeparator))}
         options={[
           { value: '-', label: '-' },
           { value: '_', label: '_' },

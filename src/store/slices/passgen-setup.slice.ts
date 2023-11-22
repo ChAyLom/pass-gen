@@ -1,4 +1,4 @@
-import { Separator } from '../../libs/consts';
+import { GroupSeparator } from '../../libs/consts';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type BaseGenOptions = {
@@ -6,7 +6,7 @@ type BaseGenOptions = {
   passLength: number;
   groupsCount: number;
   groupLength: number;
-  separator: Separator;
+  separator: GroupSeparator;
 };
 
 type SymbolsSequences = {

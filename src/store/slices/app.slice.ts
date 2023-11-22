@@ -5,7 +5,7 @@ export type AppState = {
 };
 
 const initialState: AppState = {
-  window: 'settings',
+  window: 'main',
 };
 
 export const appSlice = createSlice({
