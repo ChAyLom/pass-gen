@@ -1,18 +1,16 @@
 import { Colors } from '@blueprintjs/core';
 import { TitleBar } from './components/title-bar';
-import { ResultView } from './components/result-view';
-import { GenOptions } from './components/gen-options';
+import { Router } from './components/router';
 
 export const App = () => {
   return (
     <div
-      className="w-screen h-screen bp5-dark"
+      className="flex flex-col w-screen h-screen bp5-dark"
       style={{ backgroundColor: Colors.DARK_GRAY3 }}
     >
       <TitleBar />
-      <div className="flex flex-col p-2 w-screen gap-2">
-        <ResultView />
-        <GenOptions />
+      <div className="w-screen flex-1">
+        <Router />
       </div>
     </div>
   );
