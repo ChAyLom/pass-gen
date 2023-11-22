@@ -1,13 +1,16 @@
-import { Button, Icon, InputGroup, Tooltip } from "@blueprintjs/core";
+import { Button, Icon, InputGroup, Tooltip } from '@blueprintjs/core';
+import { useGenerator } from '../hooks/use-generator';
 
 export const ResultView = () => {
+  const { value, regenerate } = useGenerator();
+
   return (
     <div className="flex gap-2">
       <InputGroup
         className="w-full bp5-monospace-text"
         readOnly
-        rightElement={<Button minimal icon="reset" />}
-        value="85943hg84e5hg8"
+        rightElement={<Button minimal icon="reset" onClick={regenerate} />}
+        value={value}
       />
       <Tooltip
         intent="success"
