@@ -12,6 +12,11 @@
   "tauri": {
     "allowlist": {
       "all": false,
+      "clipboard": {
+        "all": false,
+        "readText": true,
+        "writeText": true
+      },
       "window": {
         "all": false,
         "close": true,
