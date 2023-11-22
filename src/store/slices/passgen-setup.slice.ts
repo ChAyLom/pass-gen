@@ -1,44 +1,16 @@
-import { GroupSeparator } from '../../libs/consts';
+import { z } from 'zod';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AllowSymbolsSeqsSchema, BaseGenSchema, PassgenSetupSchema } from './passgen-setup/passgen-setup-schema';
 
-type BaseGenOptions = {
-  passType: 'simple' | 'groups';
-  passLength: number;
-  groupsCount: number;
-  groupLength: number;
-  separator: GroupSeparator;
-};
+type BaseGenOptions = z.infer<typeof BaseGenSchema>;
 
-type SymbolsSequences = {
-  numbers: boolean;
-  upperLatin: boolean;
-  lowerLatin: boolean;
-  separators: boolean;
-  specials: boolean;
-};
+type SymbolsSequences = z.infer<typeof AllowSymbolsSeqsSchema>;
 
-export type PassgenSetupState = BaseGenOptions & {
-  allowSymbolsSeqs: SymbolsSequences;
-};
-
-const initialState: PassgenSetupState = {
-  passType: 'simple',
-  passLength: 8,
-  groupsCount: 4,
-  groupLength: 3,
-  separator: '-',
-  allowSymbolsSeqs: {
-    numbers: true,
-    upperLatin: true,
-    lowerLatin: true,
-    separators: false,
-    specials: false,
-  },
-};
+export type PassgenSetupState = z.infer<typeof PassgenSetupSchema>;
 
 export const passgenSetupSlice = createSlice({
   name: 'passGenSetup',
-  initialState,
+  initialState: PassgenSetupSchema.parse(undefined),
   reducers: {
     setPassType(state, { payload }: PayloadAction<BaseGenOptions['passType']>) {
       state.passType = payload;
