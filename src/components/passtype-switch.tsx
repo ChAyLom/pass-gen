@@ -1,21 +1,22 @@
 import { Button, ButtonGroup } from '@blueprintjs/core';
-import { useAtom } from 'jotai';
-import { passgenSetupAtom } from '../store/passgen-setup';
+import { passgenSetupActions } from '../store/slices/passgen-setup';
+import { useDispatch, useSelector } from '../store/hooks';
 
 export const PassTypeSwitch = () => {
-  const [genOptions, setGenOptions] = useAtom(passgenSetupAtom);
+  const passType = useSelector(state => state.passGenSetup.passType);
+  const dispatch = useDispatch();
 
   return (
     <ButtonGroup>
       <Button
-        intent={genOptions.passType === 'simple' ? 'primary' : 'none'}
-        onClick={() => setGenOptions(v => void (v.passType = 'simple'))}
+        intent={passType === 'simple' ? 'primary' : 'none'}
+        onClick={() => dispatch(passgenSetupActions.setPassType('simple'))}
       >
         Simple
       </Button>
       <Button
-        intent={genOptions.passType === 'groups' ? 'primary' : 'none'}
-        onClick={() => setGenOptions(v => void (v.passType = 'groups'))}
+        intent={passType === 'groups' ? 'primary' : 'none'}
+        onClick={() => dispatch(passgenSetupActions.setPassType('groups'))}
       >
         With groups
       </Button>

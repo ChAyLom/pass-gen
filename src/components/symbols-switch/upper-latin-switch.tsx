@@ -1,17 +1,20 @@
-import { useAtom } from 'jotai';
-import { passgenSetupAtom } from '../../store/passgen-setup';
 import { SymGroupSwitch } from '../sym-group-switch';
+import { useDispatch, useSelector } from '../../store/hooks';
+import { passgenSetupActions } from '../../store/slices/passgen-setup';
 
 export const UpperLatinSwitch = () => {
-  const [genOptions, setGenOptions] = useAtom(passgenSetupAtom);
+  const value = useSelector(state => state.passGenSetup.allowSymbolsSeqs.upperLatin);
+  const dispatch = useDispatch();
 
   return (
     <SymGroupSwitch
       label="ABC"
       description="Uppecase latin"
       symSequnce="A-Z"
-      value={genOptions.allowSym.upperLatin}
-      onChange={v => setGenOptions(state => void (state.allowSym.upperLatin = v))}
+      value={value}
+      onChange={v =>
+        dispatch(passgenSetupActions.setAllowSymbolsSeq({ seq: 'upperLatin', value: v }))
+      }
     />
   );
 };

@@ -1,17 +1,20 @@
-import { useAtom } from 'jotai';
+import { useDispatch, useSelector } from '../../store/hooks';
+import { passgenSetupActions } from '../../store/slices/passgen-setup';
 import { SymGroupSwitch } from '../sym-group-switch';
-import { passgenSetupAtom } from '../../store/passgen-setup';
 
 export const LowerLatinSwitch = () => {
-  const [genOptions, setGenOptions] = useAtom(passgenSetupAtom);
+  const value = useSelector(state => state.passGenSetup.allowSymbolsSeqs.lowerLatin);
+  const dispatch = useDispatch();
 
   return (
     <SymGroupSwitch
       label="abc"
       description="Lowercase latin"
       symSequnce="a-z"
-      value={genOptions.allowSym.lowerLatin}
-      onChange={v => setGenOptions(state => void (state.allowSym.lowerLatin = v))}
+      value={value}
+      onChange={v =>
+        dispatch(passgenSetupActions.setAllowSymbolsSeq({ seq: 'lowerLatin', value: v }))
+      }
     />
   );
 };

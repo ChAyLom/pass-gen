@@ -1,20 +1,19 @@
-import { useAtom } from 'jotai';
-import { passgenSetupAtom } from '../store/passgen-setup';
+import { passgenSetupActions } from '../store/slices/passgen-setup';
 import { Separator } from '../libs/consts';
 import { SegmentedControl } from '@blueprintjs/core';
+import { useDispatch, useSelector } from '../store/hooks';
 
 export const SeparatorSwitch = () => {
-  const [genOptions, setGenOptions] = useAtom(passgenSetupAtom);
+  const value = useSelector(state => state.passGenSetup.separator);
+  const dispatch = useDispatch();
 
   return (
     <div className="flex gap-4 items-center">
       <div>Separator:</div>
       <SegmentedControl
         intent="primary"
-        value={genOptions.separator}
-        onValueChange={v =>
-          setGenOptions(state => void (state.separator = v as Separator))
-        }
+        value={value}
+        onValueChange={v => dispatch(passgenSetupActions.setSeparator(v as Separator))}
         options={[
           { value: '-', label: '-' },
           { value: '_', label: '_' },

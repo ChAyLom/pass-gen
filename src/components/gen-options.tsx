@@ -1,19 +1,18 @@
-import { useAtom } from 'jotai';
-import { passgenSetupAtom } from '../store/passgen-setup';
 import { PassTypeSwitch } from './passtype-switch';
 import { SimpleOptions } from './simple-options';
 import { WithGroupsOptions } from './with-groups-options';
+import { useSelector } from '../store/hooks';
 
 export const GenOptions = () => {
-  const [genOptions] = useAtom(passgenSetupAtom);
+  const passType = useSelector(state => state.passGenSetup.passType);
 
   return (
     <>
       <PassTypeSwitch />
-      {genOptions.passType === 'simple' && (
+      {passType === 'simple' && (
         <SimpleOptions />
       )}
-      {genOptions.passType === 'groups' && (
+      {passType === 'groups' && (
         <WithGroupsOptions />
       )}
     </>

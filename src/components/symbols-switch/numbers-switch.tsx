@@ -1,17 +1,20 @@
-import { useAtom } from 'jotai';
-import { passgenSetupAtom } from '../../store/passgen-setup';
 import { SymGroupSwitch } from '../sym-group-switch';
+import { useDispatch, useSelector } from '../../store/hooks';
+import { passgenSetupActions } from '../../store/slices/passgen-setup';
 
 export const NumbersSwitch = () => {
-  const [genOptions, setGenOptions] = useAtom(passgenSetupAtom);
+  const value = useSelector(state => state.passGenSetup.allowSymbolsSeqs.numbers);
+  const dispatch = useDispatch();
 
   return (
     <SymGroupSwitch
       label="123"
       description="Numbers"
       symSequnce="0-9"
-      value={genOptions.allowSym.numbers}
-      onChange={v => setGenOptions(state => void (state.allowSym.numbers = v))}
+      value={value}
+      onChange={v =>
+        dispatch(passgenSetupActions.setAllowSymbolsSeq({ seq: 'numbers', value: v }))
+      }
     />
   );
 };
