@@ -1,7 +1,8 @@
 import { Button, Colors } from '@blueprintjs/core';
-import { useDispatch, useSelector } from '../store/hooks';
-import { SystemTheme, appActions } from '../store/slices/app.slice';
-import { themeSelector } from '../store/selectors';
+import { useDispatch, useSelector } from '../../store/hooks';
+import { SystemTheme, appActions } from '../../store/slices/app.slice';
+import { themeSelector } from '../../store/selectors';
+import { ThemeSelect } from './theme-select';
 
 const colors: Record<SystemTheme, string> = {
   dark: Colors.DARK_GRAY2,
@@ -21,11 +22,10 @@ export const Settings = () => {
             icon="small-cross"
             minimal
             small
-            onClick={() =>
-              dispatch(appActions.closeSettings())
-            }
+            onClick={() => dispatch(appActions.closeSettings())}
           />
         </div>
+        <ThemeSelect />
       </div>
     </>
   );
