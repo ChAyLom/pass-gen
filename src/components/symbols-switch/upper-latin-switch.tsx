@@ -1,6 +1,6 @@
 import { SymGroupSwitch } from '../sym-group-switch';
 import { useDispatch, useSelector } from '../../store/hooks';
-import { passgenSetupActions } from '../../store/slices/passgen-setup';
+import { passgenSetupActions } from '../../store/slices/passgen-setup.slice';
 
 export const UpperLatinSwitch = () => {
   const value = useSelector(state => state.passGenSetup.allowSymbolsSeqs.upperLatin);

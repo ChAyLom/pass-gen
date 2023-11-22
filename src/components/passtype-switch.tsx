@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from '@blueprintjs/core';
-import { passgenSetupActions } from '../store/slices/passgen-setup';
+import { passgenSetupActions } from '../store/slices/passgen-setup.slice';
 import { useDispatch, useSelector } from '../store/hooks';
 
 export const PassTypeSwitch = () => {

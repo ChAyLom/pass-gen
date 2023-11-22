@@ -1,5 +1,5 @@
 import { passLengthMax, passLengthMin } from '../libs/consts';
-import { passgenSetupActions } from '../store/slices/passgen-setup';
+import { passgenSetupActions } from '../store/slices/passgen-setup.slice';
 import { NumSlideInput } from './num-slide-input';
 import { NumbersSwitch } from './symbols-switch/numbers-switch';
 import { UpperLatinSwitch } from './symbols-switch/upper-latin-switch';

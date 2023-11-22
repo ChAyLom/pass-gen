@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { passgenSetupSlice } from "./slices/passgen-setup";
+import { passgenSetupSlice } from "./slices/passgen-setup.slice";
 
 export const store = configureStore({
   reducer: {

@@ -10,7 +10,7 @@ import { UpperLatinSwitch } from './symbols-switch/upper-latin-switch';
 import { LowerLatinSwitch } from './symbols-switch/lower-latin-switch';
 import { SeparatorSwitch } from './separator-switch';
 import { useDispatch, useSelector } from '../store/hooks';
-import { passgenSetupActions } from '../store/slices/passgen-setup';
+import { passgenSetupActions } from '../store/slices/passgen-setup.slice';
 
 export const WithGroupsOptions = () => {
   const groupsCount = useSelector(state => state.passGenSetup.groupsCount);

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from '../../store/hooks';
-import { passgenSetupActions } from '../../store/slices/passgen-setup';
+import { passgenSetupActions } from '../../store/slices/passgen-setup.slice';
 import { SymGroupSwitch } from '../sym-group-switch';
 
 export const LowerLatinSwitch = () => {
