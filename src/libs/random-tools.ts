@@ -14,6 +14,3 @@ export const getRandomChar = (source: string) => {
 export const randomString = (length: number, source: string) => {
   return [...new Array(length).keys()].map(() => getRandomChar(source)).join('');
 }
-
-
-(window as any).getRandomNumber = getRandomNumber;
