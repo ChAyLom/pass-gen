@@ -10,7 +10,7 @@ export default {
     group: 'Группами',
   },
   passwordLength: 'Длина',
-  groupsCount: 'Групп',
+  groupsCount: 'Кол-во групп',
   groupLength: 'Длина группы',
   separator: 'Разделитель',
   symbolsSequencesTooltip: {
@@ -18,7 +18,7 @@ export default {
     uppercaseLatin: 'Заглавная латиница',
     lowercaseLatin: 'Прописная латиница',
     separators: 'Разделители',
-    specials: 'Специальные символы',
+    specials: 'Спец символы',
   },
   settings: 'Настройки',
   theme: 'Тема',

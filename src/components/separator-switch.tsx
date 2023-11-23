@@ -2,14 +2,16 @@ import { passgenSetupActions } from '../store/slices/passgen-setup/passgen-setup
 import { GroupSeparator } from '../libs/consts';
 import { SegmentedControl } from '@blueprintjs/core';
 import { useDispatch, useSelector } from '../store/hooks';
+import { useLocalization } from '@localization/tools';
 
 export const SeparatorSwitch = () => {
   const value = useSelector(state => state.passGenSetup.separator);
   const dispatch = useDispatch();
+  const loc = useLocalization();
 
   return (
     <div className="flex gap-4 items-center">
-      <div>Separator:</div>
+      <div>{loc.separator}:</div>
       <SegmentedControl
         intent="primary"
         value={value}

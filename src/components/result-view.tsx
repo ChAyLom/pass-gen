@@ -8,7 +8,7 @@ export const ResultView = () => {
   return (
     <div className="flex gap-2">
       <InputGroup
-        className="w-full bp5-monospace-text"
+        className="bp5-monospace-text flex-1"
         readOnly
         rightElement={<Button minimal icon="reset" onClick={regenerate} />}
         value={value}

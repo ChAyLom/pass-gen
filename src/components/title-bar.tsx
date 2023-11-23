@@ -3,6 +3,7 @@ import { appWindow } from '@tauri-apps/api/window';
 import { useDispatch, useSelector } from '../store/hooks';
 import { SystemTheme, appActions } from '../store/slices/app.slice';
 import { themeSelector } from '../store/selectors';
+import { useLocalization } from '@localization/tools';
 
 const colors: Record<SystemTheme, string> = {
   dark: Colors.DARK_GRAY5,
@@ -13,6 +14,7 @@ export const TitleBar = () => {
   const window = useSelector(state => state.app.window);
   const theme = useSelector(themeSelector);
   const dispatch = useDispatch();
+  const loc = useLocalization();
 
   return (
     <div
@@ -20,7 +22,7 @@ export const TitleBar = () => {
       style={{ backgroundColor: colors[theme] }}
     >
       <div data-tauri-drag-region="" className="flex-auto pl-1 font-semibold">
-        Password generator
+        {loc.title}
       </div>
       <div>
         <ButtonGroup>

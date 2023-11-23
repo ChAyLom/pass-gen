@@ -1,4 +1,5 @@
 import { Button, Icon, Tooltip } from '@blueprintjs/core';
+import { useLocalization } from '@localization/tools';
 import { writeText } from '@tauri-apps/api/clipboard';
 import { useEffect, useState } from 'react';
 
@@ -9,6 +10,7 @@ export type ResultCopyProps = {
 export const ResultCopy = ({ value }: ResultCopyProps) => {
   const [copyState, setCopyState] = useState<'idle' | 'error' | 'success'>('idle');
   const [isOpen, setIsOpen] = useState<boolean>();
+  const loc = useLocalization();
 
   const forceTooltipUpdate = () => {
     setIsOpen(true);
@@ -25,12 +27,12 @@ export const ResultCopy = ({ value }: ResultCopyProps) => {
         <div>
           {copyState === 'success' && (
             <>
-              <Icon icon="tick" /> Copied
+              <Icon icon="tick" /> {loc.copied}
             </>
           )}
           {copyState === 'error' && (
             <>
-              <Icon icon="cross" /> Error
+              <Icon icon="cross" /> {loc.error}
             </>
           )}
         </div>
@@ -48,7 +50,7 @@ export const ResultCopy = ({ value }: ResultCopyProps) => {
               .finally(() => forceTooltipUpdate());
           }}
         >
-          Copy
+          {loc.copy}
         </Button>
       )}
     />

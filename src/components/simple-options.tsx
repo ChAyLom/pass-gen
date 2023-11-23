@@ -7,15 +7,17 @@ import { LowerLatinSwitch } from './symbols-switch/lower-latin-switch';
 import { SeparatorsSwitch } from './symbols-switch/separators-switch';
 import { SpecialsSwitch } from './symbols-switch/specials-switch';
 import { useDispatch, useSelector } from '../store/hooks';
+import { useLocalization } from '@localization/tools';
 
 export const SimpleOptions = () => {
   const passLength = useSelector(state => state.passGenSetup.passLength);
   const dispatch = useDispatch();
+  const loc = useLocalization();
 
   return (
     <>
       <NumSlideInput
-        label="Length:"
+        label={<>{loc.passwordLength}:</>}
         min={passLengthMin}
         max={passLengthMax}
         value={passLength}

@@ -11,23 +11,25 @@ import { LowerLatinSwitch } from './symbols-switch/lower-latin-switch';
 import { SeparatorSwitch } from './separator-switch';
 import { useDispatch, useSelector } from '../store/hooks';
 import { passgenSetupActions } from '../store/slices/passgen-setup/passgen-setup.slice';
+import { useLocalization } from '@localization/tools';
 
 export const WithGroupsOptions = () => {
   const groupsCount = useSelector(state => state.passGenSetup.groupsCount);
   const groupLength = useSelector(state => state.passGenSetup.groupLength);
   const dispatch = useDispatch();
+  const loc = useLocalization();
 
   return (
     <>
       <NumSlideInput
-        label="Groups count:"
+        label={<>{loc.groupsCount}:</>}
         min={groupsCountMin}
         max={groupsCountMax}
         value={groupsCount}
         onChange={v => dispatch(passgenSetupActions.setGroupsCount(v))}
       />
       <NumSlideInput
-        label="Group length:"
+        label={<>{loc.groupLength}:</>}
         min={groupLengthMin}
         max={groupLengthMax}
         value={groupLength}
