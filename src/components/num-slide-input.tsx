@@ -10,6 +10,11 @@ export type NumSlideInputProps = {
 }
 
 export const NumSlideInput = ({ min, max, value, label, onChange }: NumSlideInputProps) => {
+  const onChangeInner = (v: number) => {
+    if (v < min || v > max) return;
+    onChange(v);
+  }
+
   return (
     <div className="flex items-center">
       <div>{label}</div>
@@ -20,14 +25,14 @@ export const NumSlideInput = ({ min, max, value, label, onChange }: NumSlideInpu
         stepSize={1}
         labelValues={[min, max]}
         value={value}
-        onChange={onChange}
+        onChange={onChangeInner}
       />
       <div className="w-36">
         <NumericInput
           buttonPosition="left"
           fill
           value={value}
-          onValueChange={onChange}
+          onValueChange={onChangeInner}
         />
       </div>
     </div>
