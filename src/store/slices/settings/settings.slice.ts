@@ -11,6 +11,9 @@ export const settingsSlice = createSlice({
     setTheme(state, { payload }: PayloadAction<SettingsState['theme']>) {
       state.theme = payload;
     },
+    setLang(state, { payload }: PayloadAction<SettingsState['lang']>) {
+      state.lang = payload;
+    },
     set(_, { payload }: PayloadAction<SettingsState>) {
       return payload;
     },
