@@ -1,0 +1,30 @@
+export default {
+  localizationTitle: 'Русский',
+  language: 'Язык',
+  title: 'Генератор паролей',
+  copy: 'Копировать',
+  copied: 'Скопировано',
+  error: 'Ошибка',
+  passwordType: {
+    simple: 'Обычный',
+    group: 'Группами',
+  },
+  passwordLength: 'Длина',
+  groupsCount: 'Групп',
+  groupLength: 'Длина группы',
+  separator: 'Разделитель',
+  symbolsSequencesTooltip: {
+    numbers: 'Числа',
+    uppercaseLatin: 'Заглавная латиница',
+    lowercaseLatin: 'Прописная латиница',
+    separators: 'Разделители',
+    specials: 'Специальные символы',
+  },
+  settings: 'Настройки',
+  theme: 'Тема',
+  themeValues: {
+    system: 'Системная',
+    dark: 'Темная',
+    light: 'Светлая',
+  },
+};

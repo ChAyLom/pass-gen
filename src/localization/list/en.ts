@@ -1,0 +1,30 @@
+export default {
+  localizationTitle: 'English',
+  language: 'Language',
+  title: 'Password generator',
+  copy: 'Copy',
+  copied: 'Copied',
+  error: 'Error',
+  passwordType: {
+    simple: 'Simple',
+    group: 'Group',
+  },
+  passwordLength: 'Length',
+  groupsCount: 'Groups count',
+  groupLength: 'Group length',
+  separator: 'Separator',
+  symbolsSequencesTooltip: {
+    numbers: 'Numbers',
+    uppercaseLatin: 'Uppercase latin',
+    lowercaseLatin: 'Lowercase latin',
+    separators: 'Separators',
+    specials: 'Specials',
+  },
+  settings: 'Settings',
+  theme: 'Theme',
+  themeValues: {
+    system: 'System',
+    dark: 'Dark',
+    light: 'Light',
+  },
+};
