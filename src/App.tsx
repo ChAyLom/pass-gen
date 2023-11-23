@@ -1,12 +1,10 @@
 import { TitleBar } from './components/title-bar';
 import { Router } from './components/router';
-import { usePassgenSetupSaver } from './hooks/use-passgen-setup-saver';
-import { useThemeHandler } from './hooks/use-theme-handler';
 import { AppBackground } from './components/app-background';
+import { useAppCoreHooks } from './hooks/use-app-core-hooks';
 
 export const App = () => {
-  usePassgenSetupSaver();
-  useThemeHandler();
+  useAppCoreHooks();
 
   return (
     <AppBackground>
