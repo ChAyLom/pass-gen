@@ -1,5 +1,6 @@
-import { langsList, mainLang } from '@localization/index';
+import { langsList } from '@localization/index';
 import { z } from 'zod';
+import { getSystemLang } from '../../../libs/get-system-lang';
 
 export const SettingsSchema = z
   .object({
@@ -8,5 +9,5 @@ export const SettingsSchema = z
   })
   .default({
     theme: 'system',
-    lang: mainLang,
+    lang: getSystemLang(),
   });
