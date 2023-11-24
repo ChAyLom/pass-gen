@@ -14,6 +14,9 @@ export const settingsSlice = createSlice({
     setLang(state, { payload }: PayloadAction<SettingsState['lang']>) {
       state.lang = payload;
     },
+    setAllowCapture(state, { payload }: PayloadAction<SettingsState['allowCapture']>) {
+      state.allowCapture = payload;
+    },
     set(_, { payload }: PayloadAction<SettingsState>) {
       return payload;
     },

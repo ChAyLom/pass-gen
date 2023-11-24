@@ -5,6 +5,7 @@ import { themeSelector } from '../../store/selectors';
 import { ThemeSelect } from './theme-select';
 import { useLocalization } from '@localization/tools';
 import { LangSelect } from './lang-select';
+import { AllowScreenCaptureSwitch } from './allow-screen-capture-switch';
 
 const colors: Record<SystemTheme, string> = {
   dark: Colors.DARK_GRAY2,
@@ -33,6 +34,7 @@ export const Settings = () => {
         </div>
         <ThemeSelect />
         <LangSelect />
+        <AllowScreenCaptureSwitch />
       </div>
     </>
   );

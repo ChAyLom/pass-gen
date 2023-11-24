@@ -3,10 +3,10 @@ import { passgenSetupActions } from '../store/slices/passgen-setup/passgen-setup
 import { SettingsSchema } from '../store/slices/settings/settings-schema';
 import { settingsActions } from '../store/slices/settings/settings.slice';
 import { useLocalStorageDump } from './use-local-storage-dump';
-import { useThemeHandler } from './use-theme-handler';
+import { useSettingsHandler } from './use-settings-handler';
 
 export const useAppCoreHooks = () => {
-  useThemeHandler();
+  useSettingsHandler();
 
   useLocalStorageDump({
     lsKey: 'password-generator-options',

@@ -6,8 +6,10 @@ export const SettingsSchema = z
   .object({
     theme: z.enum(['system', 'light', 'dark']),
     lang: z.enum(langsList),
+    allowCapture: z.boolean(),
   })
   .default({
     theme: 'system',
     lang: getSystemLang(),
+    allowCapture: false,
   });
