@@ -10,6 +10,7 @@
     "dev": "tauri dev",
     "package": "tauri build",
     "prettier": "npx prettier \"./**/*.{js,ts,jsx,tsx,css}\" --write -u",
+    "icons-gen": "tauri icon ./src/assets/app-icon.png",
     "prepare": "npx husky install"
   },
   "dependencies": {
