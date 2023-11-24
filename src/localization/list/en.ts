@@ -28,5 +28,6 @@ export default {
     light: 'Light',
   },
   allowCapture: 'Allow screen capture',
-  allowCaptureDesc: 'Allow for third-party apps (screen recording apps, messenger with screen sharing, screenshot apps, etc.) to capture this window (with your password)',
+  allowCaptureDesc:
+    'Allow for third-party apps (screen recording apps, messenger with screen sharing, screenshot apps, etc.) to capture this window (with your password)',
 };

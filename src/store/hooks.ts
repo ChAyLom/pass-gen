@@ -1,8 +1,8 @@
 import {
-	TypedUseSelectorHook,
-	useSelector as native_useSelector,
-	useDispatch as native_useDispatch,
-	useStore as native_useStore,
+  TypedUseSelectorHook,
+  useSelector as native_useSelector,
+  useDispatch as native_useDispatch,
+  useStore as native_useStore,
 } from 'react-redux';
 import { AppStore, Dispatch, RootState } from './store';
 

@@ -20,7 +20,7 @@ export const SymGroupSwitch = ({
 }: SymGroupSwitchProps) => {
   const value = useSelector(state => state.passGenSetup.allowSymbolsSeqs[groupKey]);
   const dispatch = useDispatch();
-  
+
   return (
     <Switch
       checked={value}

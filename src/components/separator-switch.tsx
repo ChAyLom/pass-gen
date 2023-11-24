@@ -15,7 +15,9 @@ export const SeparatorSwitch = () => {
       <SegmentedControl
         intent="primary"
         value={value}
-        onValueChange={v => dispatch(passgenSetupActions.setSeparator(v as GroupSeparator))}
+        onValueChange={v =>
+          dispatch(passgenSetupActions.setSeparator(v as GroupSeparator))
+        }
         options={[
           { value: '-', label: '-' },
           { value: '_', label: '_' },

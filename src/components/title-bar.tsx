@@ -8,7 +8,7 @@ import { useLocalization } from '@localization/tools';
 const colors: Record<SystemTheme, string> = {
   dark: Colors.DARK_GRAY5,
   light: Colors.LIGHT_GRAY5,
-}
+};
 
 export const TitleBar = () => {
   const window = useSelector(state => state.app.window);

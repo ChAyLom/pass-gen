@@ -40,7 +40,7 @@ export const NumSlideInput = ({
         <div className="w-12">
           <InputGroup
             type="number"
-            inputClassName='no-number-input-arrows'
+            inputClassName="no-number-input-arrows"
             fill
             value={`${value}`}
             min={min}

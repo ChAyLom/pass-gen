@@ -24,7 +24,7 @@ export const appSlice = createSlice({
     },
     setSystemTheme(state, { payload }: PayloadAction<SystemTheme>) {
       state.systemTheme = payload;
-    }
+    },
   },
 });
 

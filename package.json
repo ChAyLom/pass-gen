@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri dev",
+    "prettier": "npx prettier \"./**/*.{js,ts,jsx,tsx,css}\" --write -u",
     "prepare": "npx husky install"
   },
   "dependencies": {

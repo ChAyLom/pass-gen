@@ -31,7 +31,7 @@ export const ThemeSelect = () => {
           onClick={() => dispatch(settingsActions.setTheme('light'))}
           icon={<Icon style={{ color: Colors.LIGHT_GRAY5 }} icon="full-circle" />}
         >
-        {loc.themeValues.light}
+          {loc.themeValues.light}
         </Button>
       </ButtonGroup>
     </div>

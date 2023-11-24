@@ -27,5 +27,5 @@ export const useGenerator = () => {
   return {
     value: generated,
     regenerate,
-  }
+  };
 };

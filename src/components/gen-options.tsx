@@ -9,12 +9,8 @@ export const GenOptions = () => {
   return (
     <>
       <PassTypeSwitch />
-      {passType === 'simple' && (
-        <SimpleOptions />
-      )}
-      {passType === 'groups' && (
-        <WithGroupsOptions />
-      )}
+      {passType === 'simple' && <SimpleOptions />}
+      {passType === 'groups' && <WithGroupsOptions />}
     </>
   );
 };
