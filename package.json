@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "tauri": "tauri dev",
+    "dev:renderer": "vite",
+    "build:renderer": "tsc && vite build",
+    "preview:renderer": "vite preview",
+    "dev": "tauri dev",
+    "package": "tauri build",
     "prettier": "npx prettier \"./**/*.{js,ts,jsx,tsx,css}\" --write -u",
     "prepare": "npx husky install"
   },
