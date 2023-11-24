@@ -1,21 +1,38 @@
 import { Icon, Switch, Tooltip } from '@blueprintjs/core';
-import { InputValueProps } from '../libs/types';
+import {
+  SymbolsSequences,
+  passgenSetupActions,
+} from '../store/slices/passgen-setup/passgen-setup.slice';
+import { useDispatch, useSelector } from '../store/hooks';
 
-export type SymGroupSwitchProps = InputValueProps<boolean> & {
+export type SymGroupSwitchProps = {
+  groupKey: keyof SymbolsSequences;
   label: string;
   description: string;
   symSequnce: string;
 };
 
 export const SymGroupSwitch = ({
+  groupKey,
   label,
   description,
   symSequnce,
-  value,
-  onChange,
 }: SymGroupSwitchProps) => {
+  const value = useSelector(state => state.passGenSetup.allowSymbolsSeqs[groupKey]);
+  const dispatch = useDispatch();
+  
   return (
-    <Switch checked={value} onChange={v => onChange(v.currentTarget.checked)} >
+    <Switch
+      checked={value}
+      onChange={v =>
+        dispatch(
+          passgenSetupActions.setAllowSymbolsSeq({
+            seq: groupKey,
+            value: v.currentTarget.checked,
+          }),
+        )
+      }
+    >
       {label}{' '}
       <Tooltip
         content={

@@ -8,7 +8,7 @@ import {
 
 type BaseGenOptions = z.infer<typeof BaseGenSchema>;
 
-type SymbolsSequences = z.infer<typeof AllowSymbolsSeqsSchema>;
+export type SymbolsSequences = z.infer<typeof AllowSymbolsSeqsSchema>;
 
 export type PassgenSetupState = z.infer<typeof PassgenSetupSchema>;
 
