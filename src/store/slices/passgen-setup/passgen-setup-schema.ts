@@ -12,9 +12,9 @@ import {
 
 export const BaseGenSchema = z.object({
   passType: z.enum(passType),
-  passLength: z.number().max(passLengthMax).min(passLengthMin),
-  groupsCount: z.number().max(groupsCountMax).min(groupsCountMin),
-  groupLength: z.number().max(groupLengthMax).min(groupLengthMin),
+  passLength: z.number().max(passLengthMax).min(passLengthMin).int(),
+  groupsCount: z.number().max(groupsCountMax).min(groupsCountMin).int(),
+  groupLength: z.number().max(groupLengthMax).min(groupLengthMin).int(),
   separator: z.enum(groupSeparators),
 });
 

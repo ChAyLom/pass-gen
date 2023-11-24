@@ -1,19 +1,26 @@
-import { NumericInput, Slider } from '@blueprintjs/core';
+import { Button, InputGroup, Slider } from '@blueprintjs/core';
 import { ReactNode } from 'react';
 
 export type NumSlideInputProps = {
   min: number;
   max: number;
   value: number;
-  label: ReactNode
+  label: ReactNode;
   onChange: (v: number) => void;
-}
+};
 
-export const NumSlideInput = ({ min, max, value, label, onChange }: NumSlideInputProps) => {
+export const NumSlideInput = ({
+  min,
+  max,
+  value,
+  label,
+  onChange,
+}: NumSlideInputProps) => {
   const onChangeInner = (v: number) => {
-    if (v < min || v > max) return;
-    onChange(v);
-  }
+    if (v < min) onChange(min);
+    else if (v > max) onChange(max);
+    else onChange(v);
+  };
 
   return (
     <div className="flex items-center">
@@ -27,13 +34,26 @@ export const NumSlideInput = ({ min, max, value, label, onChange }: NumSlideInpu
         value={value}
         onChange={onChangeInner}
       />
-      <div className="w-36">
-        <NumericInput
-          buttonPosition="left"
-          fill
-          value={value}
-          onValueChange={onChangeInner}
-        />
+      <div className="flex">
+        <Button icon="chevron-left" onClick={() => onChangeInner(value - 1)} />
+        <Button icon="chevron-right" onClick={() => onChangeInner(value + 1)} />
+        <div className="w-12">
+          <InputGroup
+            type="number"
+            inputClassName='no-number-input-arrows'
+            fill
+            value={`${value}`}
+            min={min}
+            max={max}
+            onChange={e => {
+              const a = e.currentTarget.value;
+              if (!a) return;
+              if (Number.isNaN(+a)) return;
+              if (!Number.isInteger(+a)) return;
+              onChangeInner(+a);
+            }}
+          ></InputGroup>
+        </div>
       </div>
     </div>
   );
