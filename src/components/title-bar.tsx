@@ -1,5 +1,6 @@
 import { Button, ButtonGroup, Colors, Divider } from '@blueprintjs/core';
 import { appWindow } from '@tauri-apps/api/window';
+import { invoke } from '@tauri-apps/api';
 import { useDispatch, useSelector } from '../store/hooks';
 import { SystemTheme, appActions } from '../store/slices/app.slice';
 import { themeSelector } from '../store/selectors';
@@ -41,7 +42,7 @@ export const TitleBar = () => {
             intent="danger"
             small
             minimal
-            onClick={() => appWindow.close()}
+            onClick={() => invoke('close_app')}
           />
         </ButtonGroup>
       </div>

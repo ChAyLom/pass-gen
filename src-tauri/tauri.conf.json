@@ -19,7 +19,6 @@
       },
       "window": {
         "all": false,
-        "close": true,
         "minimize": true,
         "startDragging": true
       },
