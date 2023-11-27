@@ -6,8 +6,8 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "pass-gen",
-    "version": "0.0.0"
+    "productName": "PassGen",
+    "version": "../package.json"
   },
   "tauri": {
     "allowlist": {
@@ -20,6 +20,7 @@
       "window": {
         "all": false,
         "minimize": true,
+        "show": true,
         "startDragging": true
       },
       "shell": {
@@ -29,13 +30,16 @@
     },
     "bundle": {
       "active": true,
-      "targets": "all",
+      "targets": ["app", "deb", "nsis", "updater"],
       "identifier": "com.tauri.chaylom.password-generator-desktop",
+      "category": "Utility",
       "windows": {
         "allowDowngrades": true,
         "certificateThumbprint": null,
         "digestAlgorithm": null,
-        "nsis": null,
+        "nsis": {
+          "installMode": "both"
+        },
         "timestampUrl": null,
         "tsp": false,
         "webviewFixedRuntimePath": null,
