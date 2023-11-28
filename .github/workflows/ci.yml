@@ -31,7 +31,7 @@ jobs:
               repo: context.repo.repo,
               tag_name: `app-v${process.env.PACKAGE_VERSION}`,
               name: `PassGen v${process.env.PACKAGE_VERSION}`,
-              body: 'Take a look at the assets to download and install this app.',
+              body: 'App packaged for Windows, Linux and MacOS. Download and run your preferred installer to use the app.',
               draft: true,
               prerelease: false
             })
