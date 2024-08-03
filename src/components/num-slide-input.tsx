@@ -1,4 +1,4 @@
-import { Button, InputGroup, Slider } from '@blueprintjs/core';
+import { Button, ButtonGroup, InputGroup, Slider } from '@blueprintjs/core';
 import { ReactNode } from 'react';
 
 export type NumSlideInputProps = {
@@ -35,8 +35,10 @@ export const NumSlideInput = ({
         onChange={onChangeInner}
       />
       <div className="flex">
-        <Button icon="chevron-left" onClick={() => onChangeInner(value - 1)} />
-        <Button icon="chevron-right" onClick={() => onChangeInner(value + 1)} />
+        <ButtonGroup>
+          <Button icon="chevron-left" onClick={() => onChangeInner(value - 1)} />
+          <Button icon="chevron-right" onClick={() => onChangeInner(value + 1)} />
+        </ButtonGroup>
         <div className="w-12">
           <InputGroup
             type="number"
