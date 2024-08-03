@@ -7,7 +7,7 @@ export default {
   error: 'Ошибка',
   passwordType: {
     simple: 'Обычный',
-    group: 'Группами',
+    groups: 'Группами',
   },
   passwordLength: 'Длина',
   groupsCount: 'Кол-во групп',

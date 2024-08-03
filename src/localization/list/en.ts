@@ -7,7 +7,7 @@ export default {
   error: 'Error',
   passwordType: {
     simple: 'Simple',
-    group: 'Group',
+    groups: 'Group',
   },
   passwordLength: 'Length',
   groupsCount: 'Groups count',

@@ -6,7 +6,7 @@ import {
   PassgenSetupSchema,
 } from './passgen-setup-schema';
 
-type BaseGenOptions = z.infer<typeof BaseGenSchema>;
+export type BaseGenOptions = z.infer<typeof BaseGenSchema>;
 
 export type SymbolsSequences = z.infer<typeof AllowSymbolsSeqsSchema>;
 
