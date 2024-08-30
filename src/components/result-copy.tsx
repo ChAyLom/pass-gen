@@ -1,14 +1,21 @@
-import { Button, Icon, Tooltip } from '@blueprintjs/core';
+import { Button, Icon, Intent, Tooltip } from '@blueprintjs/core';
 import { useLocalization } from '@localization/tools';
 import { writeText } from '@tauri-apps/api/clipboard';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { CopyState, CopyStateReturn } from '../hooks/use-copy-state';
 
-export type ResultCopyProps = {
+export type ResultCopyProps = CopyStateReturn & {
+  copyState: CopyState;
   value: string;
 };
 
-export const ResultCopy = ({ value }: ResultCopyProps) => {
-  const [copyState, setCopyState] = useState<'idle' | 'error' | 'success'>('idle');
+const buttonIntentMap: Record<CopyState, Intent> = {
+  idle: 'none',
+  error: 'danger',
+  success: 'success',
+};
+
+export const ResultCopy = ({ value, copyState, setCopyState }: ResultCopyProps) => {
   const [isOpen, setIsOpen] = useState<boolean>();
   const loc = useLocalization();
 
@@ -16,8 +23,6 @@ export const ResultCopy = ({ value }: ResultCopyProps) => {
     setIsOpen(true);
     setTimeout(() => setIsOpen(undefined));
   };
-
-  useEffect(() => setCopyState('idle'), [value]);
 
   return (
     <Tooltip
@@ -43,6 +48,7 @@ export const ResultCopy = ({ value }: ResultCopyProps) => {
         <Button
           {...props}
           icon="clipboard"
+          intent={buttonIntentMap[copyState]}
           onClick={() => {
             writeText(value)
               .then(() => setCopyState('success'))
