@@ -23,8 +23,8 @@ export const NumSlideInput = ({
   };
 
   return (
-    <div className="flex items-center">
-      <div>{label}</div>
+    <div className="flex items-start">
+      <div className="my-auto">{label}</div>
       <Slider
         className="mx-4"
         min={min}
