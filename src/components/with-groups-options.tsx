@@ -12,6 +12,7 @@ import { SeparatorSwitch } from './separator-switch';
 import { useDispatch, useSelector } from '../store/hooks';
 import { passgenSetupActions } from '../store/slices/passgen-setup/passgen-setup.slice';
 import { useLocalization } from '@localization/tools';
+import { CapitalizeSwitch } from './symbols-switch/capitalize-switch';
 
 export const WithGroupsOptions = () => {
   const groupsCount = useSelector(state => state.passGenSetup.groupsCount);
@@ -40,6 +41,7 @@ export const WithGroupsOptions = () => {
         <NumbersSwitch />
         <UpperLatinSwitch />
         <LowerLatinSwitch />
+        <CapitalizeSwitch />
       </div>
     </>
   );

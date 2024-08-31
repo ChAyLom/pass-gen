@@ -31,6 +31,9 @@ export const passgenSetupSlice = createSlice({
     setSeparator(state, { payload }: PayloadAction<BaseGenOptions['separator']>) {
       state.separator = payload;
     },
+    setCapitalize(state, { payload }: PayloadAction<BaseGenOptions['capitalize']>) {
+      state.capitalize = payload;
+    },
     setAllowSymbolsSeq(
       state,
       { payload }: PayloadAction<{ seq: keyof SymbolsSequences; value: boolean }>,

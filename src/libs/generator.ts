@@ -12,6 +12,7 @@ export const generatePassword = ({
   allowSymbolsSeqs: symbols,
   ...options
 }: PassgenSetupState) => {
+  let result: string = '';
   if (options.passType === 'simple') {
     const sample = [
       symbols.numbers ? numbers : '',
@@ -20,8 +21,9 @@ export const generatePassword = ({
       symbols.separators ? separators : '',
       symbols.specials ? specialsSymbols : '',
     ].join('');
-    return randomString(options.passLength, sample);
+    result = randomString(options.passLength, sample);
   }
+
   if (options.passType === 'groups') {
     const sample = [
       symbols.numbers ? numbers : '',
@@ -29,9 +31,14 @@ export const generatePassword = ({
       symbols.upperLatin ? uppercaseLatin : '',
     ].join('');
 
-    return [...new Array(options.groupsCount)]
+    result = [...new Array(options.groupsCount)]
       .map(() => randomString(options.groupLength, sample))
       .join(options.separator);
   }
-  return '' as never;
+
+  if (options.capitalize) {
+    result = `${randomString(1, uppercaseLatin)}${result.slice(1)}`;
+  }
+
+  return result;
 };

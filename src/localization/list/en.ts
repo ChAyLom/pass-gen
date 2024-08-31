@@ -13,6 +13,8 @@ export default {
   groupsCount: 'Groups count',
   groupLength: 'Group length',
   separator: 'Separator',
+  capitalize: 'Capitalize',
+  capitalizeDescription: 'First symbol will be from uppercase latin',
   symbolsSequencesTooltip: {
     numbers: 'Numbers',
     uppercaseLatin: 'Uppercase latin',

@@ -8,6 +8,7 @@ import { SeparatorsSwitch } from './symbols-switch/separators-switch';
 import { SpecialsSwitch } from './symbols-switch/specials-switch';
 import { useDispatch, useSelector } from '../store/hooks';
 import { useLocalization } from '@localization/tools';
+import { CapitalizeSwitch } from './symbols-switch/capitalize-switch';
 
 export const SimpleOptions = () => {
   const passLength = useSelector(state => state.passGenSetup.passLength);
@@ -29,6 +30,7 @@ export const SimpleOptions = () => {
         <LowerLatinSwitch />
         <SeparatorsSwitch />
         <SpecialsSwitch />
+        <CapitalizeSwitch />
       </div>
     </>
   );

@@ -13,6 +13,8 @@ export default {
   groupsCount: 'Кол-во групп',
   groupLength: 'Длина группы',
   separator: 'Разделитель',
+  capitalize: 'С заглавной',
+  capitalizeDescription: 'Первый символ будет из заглавной латиницы',
   symbolsSequencesTooltip: {
     numbers: 'Числа',
     uppercaseLatin: 'Заглавная латиница',

@@ -16,6 +16,7 @@ export const BaseGenSchema = z.object({
   groupsCount: z.number().max(groupsCountMax).min(groupsCountMin).int(),
   groupLength: z.number().max(groupLengthMax).min(groupLengthMin).int(),
   separator: z.enum(groupSeparators),
+  capitalize: z.boolean(),
 });
 
 export const AllowSymbolsSeqsSchema = z.object({
@@ -34,6 +35,7 @@ export const PassgenSetupSchema = BaseGenSchema.extend({
   groupsCount: 4,
   groupLength: 3,
   separator: '-',
+  capitalize: false,
   allowSymbolsSeqs: {
     numbers: true,
     upperLatin: true,
