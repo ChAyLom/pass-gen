@@ -4,9 +4,11 @@ import { SettingsSchema } from '../store/slices/settings/settings-schema';
 import { settingsActions } from '../store/slices/settings/settings.slice';
 import { useLocalStorageDump } from './use-local-storage-dump';
 import { useSettingsHandler } from './use-settings-handler';
+import { useWindowSizesSet } from './use-window-sizes-set';
 
 export const useAppCoreHooks = () => {
   useSettingsHandler();
+  useWindowSizesSet();
 
   useLocalStorageDump({
     lsKey: 'password-generator-options',
