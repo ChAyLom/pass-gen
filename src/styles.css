@@ -13,3 +13,11 @@
     }
   }
 }
+
+@layer base {
+  body {
+    --app-background-color: #2f343c;
+    background-color: var(--app-background-color);
+    overflow: hidden;
+  }
+}

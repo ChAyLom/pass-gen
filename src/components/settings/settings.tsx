@@ -20,7 +20,7 @@ export const Settings = () => {
   return (
     <>
       <div
-        className="p-2 w-full h-full flex flex-col gap-2"
+        className="p-2 w-full flex-1 flex flex-col gap-2"
         style={{ backgroundColor: colors[theme] }}
       >
         <div className="flex">
