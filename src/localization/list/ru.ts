@@ -5,6 +5,7 @@ export default {
   copy: 'Копировать',
   copied: 'Скопировано',
   error: 'Ошибка',
+  extraOptions: 'Дополнительные настройки',
   passwordType: {
     simple: 'Обычный',
     groups: 'Группами',
@@ -15,6 +16,9 @@ export default {
   separator: 'Разделитель',
   capitalize: 'С заглавной',
   capitalizeDescription: 'Первый символ будет из заглавной латиницы',
+  atLeastOneFromSeq: 'Хотя бы один символ из группы',
+  atLeastOneFromSeqDescription:
+    'Гарантирует, что в сгенерированный пароль будет включен по крайней мере один символ из каждой разрешенной группы',
   symbolsSequencesTooltip: {
     numbers: 'Числа',
     uppercaseLatin: 'Заглавная латиница',

@@ -14,3 +14,17 @@ export const getRandomChar = (source: string) => {
 export const randomString = (length: number, source: string) => {
   return [...new Array(length).keys()].map(() => getRandomChar(source)).join('');
 };
+
+export const shuffleArray = <T>(array: T[]) => {
+  for (let i = array.length - 1; i >= 0; i--) {
+    const swap = getRandomNumber(0, i);
+    [array[i], array[swap]] = [array[swap], array[i]];
+  }
+  return array;
+};
+
+export const shuffleString = (string: string) => {
+  const arr = string.split('');
+  shuffleArray(arr);
+  return arr.join('');
+};

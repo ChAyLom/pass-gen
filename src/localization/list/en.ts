@@ -5,6 +5,7 @@ export default {
   copy: 'Copy',
   copied: 'Copied',
   error: 'Error',
+  extraOptions: 'Extra options',
   passwordType: {
     simple: 'Simple',
     groups: 'Group',
@@ -15,6 +16,9 @@ export default {
   separator: 'Separator',
   capitalize: 'Capitalize',
   capitalizeDescription: 'First symbol will be from uppercase latin',
+  atLeastOneFromSeq: 'At least one symbol from group',
+  atLeastOneFromSeqDescription:
+    'Ensures that at least one symbol, from each enabled group, is included in the generated password',
   symbolsSequencesTooltip: {
     numbers: 'Numbers',
     uppercaseLatin: 'Uppercase latin',

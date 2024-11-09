@@ -1,5 +1,6 @@
 import { PassgenSetupState } from '../store/slices/passgen-setup/passgen-setup.slice';
-import { randomString } from './random-tools';
+import { notNull } from './common-is';
+import { randomString, shuffleString } from './random-tools';
 import {
   lowercaseLatin,
   numbers,
@@ -12,33 +13,40 @@ export const generatePassword = ({
   allowSymbolsSeqs: symbols,
   ...options
 }: PassgenSetupState) => {
-  let result: string = '';
-  if (options.passType === 'simple') {
-    const sample = [
-      symbols.numbers ? numbers : '',
-      symbols.lowerLatin ? lowercaseLatin : '',
-      symbols.upperLatin ? uppercaseLatin : '',
-      symbols.separators ? separators : '',
-      symbols.specials ? specialsSymbols : '',
-    ].join('');
-    result = randomString(options.passLength, sample);
+  const samples = [
+    symbols.numbers ? numbers : null,
+    symbols.lowerLatin ? lowercaseLatin : null,
+    symbols.upperLatin ? uppercaseLatin : null,
+    symbols.separators && options.passType !== 'groups' ? separators : null,
+    symbols.specials && options.passType !== 'groups' ? specialsSymbols : null,
+  ].filter(notNull);
+
+  const required = options.atLeastOneFromSeq
+    ? samples.map(v => randomString(1, v)).join('')
+    : '';
+
+  const rawLength =
+    {
+      simple: options.passLength,
+      groups: options.groupsCount * options.groupLength,
+    }[options.passType] -
+    required.length -
+    (options.capitalize ? 1 : 0);
+
+  const raw = rawLength > 0 ? randomString(rawLength, samples.join('')) : '';
+
+  const rawRes =
+    (options.capitalize ? randomString(1, uppercaseLatin) : '') +
+    shuffleString(required + raw);
+
+  switch (options.passType) {
+    case 'groups':
+      return [...new Array(options.groupsCount)]
+        .map((_, index) =>
+          rawRes.slice(index * options.groupLength, (index + 1) * options.groupLength),
+        )
+        .join(options.separator);
+    case 'simple':
+      return rawRes;
   }
-
-  if (options.passType === 'groups') {
-    const sample = [
-      symbols.numbers ? numbers : '',
-      symbols.lowerLatin ? lowercaseLatin : '',
-      symbols.upperLatin ? uppercaseLatin : '',
-    ].join('');
-
-    result = [...new Array(options.groupsCount)]
-      .map(() => randomString(options.groupLength, sample))
-      .join(options.separator);
-  }
-
-  if (options.capitalize) {
-    result = `${randomString(1, uppercaseLatin)}${result.slice(1)}`;
-  }
-
-  return result;
 };
