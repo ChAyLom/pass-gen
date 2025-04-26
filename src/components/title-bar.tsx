@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, Colors, Divider } from '@blueprintjs/core';
-import { appWindow } from '@tauri-apps/api/window';
-import { invoke } from '@tauri-apps/api';
+import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
+import { invoke } from '@tauri-apps/api/core';
 import { useDispatch, useSelector } from '../store/hooks';
 import { SystemTheme, appActions } from '../store/slices/app.slice';
 import { themeSelector } from '../store/selectors';
@@ -36,7 +36,12 @@ export const TitleBar = () => {
             onClick={() => dispatch(appActions.switchSettings())}
           />
           <Divider />
-          <Button icon="minus" small minimal onClick={() => appWindow.minimize()} />
+          <Button
+            icon="minus"
+            small
+            minimal
+            onClick={() => getCurrentWebviewWindow().minimize()}
+          />
           <Button
             icon="cross"
             intent="danger"

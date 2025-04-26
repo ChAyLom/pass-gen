@@ -3,7 +3,7 @@ import { useDispatch } from '../store/hooks';
 import { appActions } from '../store/slices/app.slice';
 import { startStoreListening } from '../store/listener-middleware';
 import { RootState } from '../store/store';
-import { appWindow } from '@tauri-apps/api/window';
+import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
 
 export const useSettingsHandler = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export const useSettingsHandler = () => {
         selector(currentState) !== selector(previousState),
       effect: (_, api) => {
         const allowCapture = selector(api.getState());
-        appWindow.setContentProtected(!allowCapture);
+        getCurrentWebviewWindow().setContentProtected(!allowCapture);
       },
     });
 

@@ -1,7 +1,7 @@
 import { Button, InputGroup } from '@blueprintjs/core';
 import { useGenerator } from '../hooks/use-generator';
 import { ResultCopy } from './result-copy';
-import { writeText } from '@tauri-apps/api/clipboard';
+import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 import { useEffect, useState } from 'react';
 import { CopyState } from '../hooks/use-copy-state';
 

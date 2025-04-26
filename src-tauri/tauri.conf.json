@@ -2,64 +2,43 @@
   "build": {
     "beforeDevCommand": "npm run dev:renderer",
     "beforeBuildCommand": "npm run build:renderer",
-    "devPath": "http://localhost:1420",
-    "distDir": "../dist"
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420"
   },
-  "package": {
-    "productName": "PassGen",
-    "version": "../package.json"
-  },
-  "tauri": {
-    "allowlist": {
-      "all": false,
-      "clipboard": {
-        "all": false,
-        "readText": true,
-        "writeText": true
+  "bundle": {
+    "active": true,
+    "targets": ["app", "deb", "nsis"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "category": "Utility",
+    "windows": {
+      "allowDowngrades": true,
+      "certificateThumbprint": null,
+      "digestAlgorithm": null,
+      "nsis": {
+        "installMode": "both"
       },
-      "window": {
-        "all": false,
-        "minimize": true,
-        "show": true,
-        "startDragging": true
-      },
-      "shell": {
-        "all": false,
-        "open": true
+      "timestampUrl": null,
+      "tsp": false,
+      "wix": null,
+      "webviewInstallMode": {
+        "silent": true,
+        "type": "downloadBootstrapper"
       }
     },
-    "bundle": {
-      "active": true,
-      "targets": ["app", "deb", "nsis", "updater"],
-      "identifier": "com.tauri.chaylom.password-generator-desktop",
-      "category": "Utility",
-      "windows": {
-        "allowDowngrades": true,
-        "certificateThumbprint": null,
-        "digestAlgorithm": null,
-        "nsis": {
-          "installMode": "both"
-        },
-        "timestampUrl": null,
-        "tsp": false,
-        "webviewFixedRuntimePath": null,
-        "webviewInstallMode": {
-          "silent": true,
-          "type": "downloadBootstrapper"
-        },
-        "wix": null
-      },
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ]
-    },
-    "security": {
-      "csp": null
-    },
+    "createUpdaterArtifacts": "v1Compatible"
+  },
+  "productName": "PassGen",
+  "mainBinaryName": "PassGen",
+  "version": "../package.json",
+  "identifier": "com.tauri.chaylom.password-generator-desktop",
+  "plugins": {},
+  "app": {
     "windows": [
       {
         "fullscreen": false,
@@ -70,8 +49,12 @@
         "visible": false,
         "title": "Password generator",
         "width": 400,
-        "height": 300
+        "height": 300,
+        "useHttpsScheme": true
       }
-    ]
+    ],
+    "security": {
+      "csp": null
+    }
   }
 }

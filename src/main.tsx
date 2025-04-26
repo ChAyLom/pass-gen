@@ -2,9 +2,11 @@ import ReactDOM from 'react-dom/client';
 import { App } from './App';
 import './styles.css';
 import { FocusStyleManager } from '@blueprintjs/core';
-import { appWindow } from '@tauri-apps/api/window';
+import { getCurrentWebviewWindow } from '@tauri-apps/api/webviewWindow';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+
+const appWindow = getCurrentWebviewWindow();
 
 appWindow.show();
 FocusStyleManager.onlyShowFocusOnTabs();

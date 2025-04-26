@@ -1,6 +1,6 @@
 import { Button, Icon, Intent, Tooltip } from '@blueprintjs/core';
 import { useLocalization } from '@localization/tools';
-import { writeText } from '@tauri-apps/api/clipboard';
+import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 import { useState } from 'react';
 import { CopyState, CopyStateReturn } from '../hooks/use-copy-state';
 
