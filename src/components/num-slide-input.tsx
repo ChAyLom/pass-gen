@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, InputGroup, Slider } from '@blueprintjs/core';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 export type NumSlideInputProps = {
   min: number;
@@ -16,6 +16,14 @@ export const NumSlideInput = ({
   label,
   onChange,
 }: NumSlideInputProps) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (inputRef.current && inputRef.current !== document.activeElement) {
+      inputRef.current.value = String(value);
+    }
+  }, [value]);
+
   const onChangeInner = (v: number) => {
     if (v < min) onChange(min);
     else if (v > max) onChange(max);
@@ -41,18 +49,24 @@ export const NumSlideInput = ({
         </ButtonGroup>
         <div className="w-12">
           <InputGroup
+            inputRef={inputRef}
             type="number"
             inputClassName="no-number-input-arrows"
             fill
-            value={`${value}`}
             min={min}
             max={max}
-            onChange={e => {
-              const a = e.currentTarget.value;
-              if (!a) return;
-              if (Number.isNaN(+a)) return;
-              if (!Number.isInteger(+a)) return;
-              onChangeInner(+a);
+            onBlur={e => {
+              let newValue = e.currentTarget.value;
+              if (!newValue || Number.isNaN(+newValue) || !Number.isInteger(+newValue)) {
+                e.currentTarget.value = String(value);
+              } else {
+                onChangeInner(+newValue);
+              }
+            }}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                e.currentTarget.blur();
+              }
             }}
           ></InputGroup>
         </div>
