@@ -30,8 +30,7 @@
         "silent": true,
         "type": "downloadBootstrapper"
       }
-    },
-    "createUpdaterArtifacts": "v1Compatible"
+    }
   },
   "productName": "PassGen",
   "mainBinaryName": "PassGen",
